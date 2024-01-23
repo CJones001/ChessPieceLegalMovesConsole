@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChessBoardModel
 {
-    internal class Cell
+    public class Cell
     {
         // Row and Column for the Cells location on the grdi
         public int RowNumber { get; set; }
@@ -17,5 +17,12 @@ namespace ChessBoardModel
 
         // T/F; is this cell legal for the chess piece to move to?
         public bool LegalNextMove { get; set; }
+
+        // Constructor
+        public Cell(int r, int c)
+        {
+            RowNumber = r;
+            ColumnNumber = c;
+        }
     }
 }
