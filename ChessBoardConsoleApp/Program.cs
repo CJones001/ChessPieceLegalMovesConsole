@@ -10,10 +10,12 @@ namespace ChessBoardConsoleApp
         {
             // show the empty chessboard
             printGrid(myBoard);
+            // allow the user to select a piece
+            string myPiece = setPiece();
             // get the location of the chess piece
             Cell myLocation = setCurrentCell();
             // calculate and mark the cells where legal moves are possible.
-            myBoard.MarkNextLegalMoves(myLocation, "Knight");
+            myBoard.MarkNextLegalMoves(myLocation, myPiece);
             // show the chess board. Use . for an empty square, X for the piece location and + for a possible legal move
             printGrid(myBoard);
             // wait for another return key to end the program
@@ -54,6 +56,35 @@ namespace ChessBoardConsoleApp
             myBoard.theGrid[currentRow, currentCol].CurrentlyOccupied = true;
 
             return myBoard.theGrid[currentRow, currentCol];
+        }
+
+        static public string setPiece()
+        {
+            string myPiece = "";
+            Console.Out.Write("Select a piece: n = knight, r = rook, q = queen, b = bishop, k = king ");
+            string piece = Console.ReadLine();
+            if (piece == "n")
+            {
+                myPiece = "Knight";
+            }
+            if (piece == "r")
+            {
+                myPiece = "Rook";
+            }
+            if (piece == "q")
+            {
+                myPiece = "Queen";
+            }
+            if (piece == "k")
+            {
+                myPiece = "King";
+            }
+            if (piece == "b")
+            {
+                myPiece = "bishop";
+            }
+            
+            return myPiece;
         }
     }
 }
