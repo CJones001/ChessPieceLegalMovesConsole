@@ -31,22 +31,22 @@ namespace ChessBoardConsoleApp
             for (int i = 0; i < myBoard.Size; i++)
             {
                 Console.WriteLine("+---+---+---+---+---+---+---+---+");
-                for (int j = 0;  j < myBoard.Size; j++)
+                for (int j = 0; j < myBoard.Size; j++)
                 {
-                   if (myBoard.theGrid[i, j].CurrentlyOccupied)
+                    if (myBoard.theGrid[i, j].CurrentlyOccupied)
                     {
                         Console.Write("| X ");
                     }
-                   else if (myBoard.theGrid[i, j].LegalNextMove)
+                    else if (myBoard.theGrid[i, j].LegalNextMove)
                     {
                         Console.Write("| + ");
                     }
-                   else
+                    else
                     {
                         Console.Write("|   ");
                     }
 
-                   if(j == y)
+                    if (j == y)
                     {
                         Console.Write("|");
                     }
@@ -71,7 +71,7 @@ namespace ChessBoardConsoleApp
                 {
                     Console.WriteLine("Enter a value between 0 and 7 ");
                 }
-            } 
+            }
             // Make sure the user entered a valid value
             while (currentRow > 7 || currentRow < 0);
 
@@ -84,9 +84,9 @@ namespace ChessBoardConsoleApp
                 {
                     Console.WriteLine("Enter a value between 0 and 7 ");
                 }
-            } 
+            }
             while (currentCol > 7 || currentCol < 0);
-            
+
             myBoard.theGrid[currentRow, currentCol].CurrentlyOccupied = true;
 
             return myBoard.theGrid[currentRow, currentCol];
@@ -102,7 +102,11 @@ namespace ChessBoardConsoleApp
                 Console.Out.Write("Select a piece: n = knight, r = rook, q = queen, b = bishop, k = king ");
                 piece = Console.ReadLine();
             }
-            while (int.TryParse(piece, out check) || piece == "");
+            while (piece != "n"
+                || piece != "k"
+                || piece != "r"
+                || piece != "q"
+                || piece != "b");
 
             if (piece == "n")
             {
