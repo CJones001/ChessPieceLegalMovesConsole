@@ -23,26 +23,35 @@ namespace ChessBoardConsoleApp
         }
         static public void printGrid(Board myBoard)
         {
+            int y = myBoard.Size;
+            y = y - 1;
             // print the board on the console. Use "X" for current location, "+" for legal move and "." for an empty square
             for (int i = 0; i < myBoard.Size; i++)
             {
+                Console.WriteLine("+---+---+---+---+---+---+---+---+");
                 for (int j = 0;  j < myBoard.Size; j++)
                 {
                    if (myBoard.theGrid[i, j].CurrentlyOccupied)
                     {
-                        Console.Write("X");
+                        Console.Write("| X ");
                     }
                    else if (myBoard.theGrid[i, j].LegalNextMove)
                     {
-                        Console.Write("+");
+                        Console.Write("| + ");
                     }
                    else
                     {
-                        Console.Write(".");
+                        Console.Write("|   ");
+                    }
+
+                   if(j == y)
+                    {
+                        Console.Write("|");
                     }
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine("+---+---+---+---+---+---+---+---+");
             Console.WriteLine("================================");
         }
         static public Cell setCurrentCell()

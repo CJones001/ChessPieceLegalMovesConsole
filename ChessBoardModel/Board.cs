@@ -48,6 +48,7 @@ namespace ChessBoardModel
             switch (chessPiece)
             {
                 case "Knight":
+                    #region Knight Moves
                     try
                     {
                         theGrid[currentCell.RowNumber - 1, currentCell.ColumnNumber - 2].LegalNextMove = true;
@@ -88,9 +89,11 @@ namespace ChessBoardModel
                         theGrid[currentCell.RowNumber - 2, currentCell.ColumnNumber + 1].LegalNextMove = true;
                     }
                     catch (Exception) { }
+                    #endregion
                     break;
 
                 case "King":
+                    #region King Moves
                     try
                     {
                         theGrid[currentCell.RowNumber - 1, currentCell.ColumnNumber].LegalNextMove = true;
@@ -131,9 +134,11 @@ namespace ChessBoardModel
                         theGrid[currentCell.RowNumber - 1, currentCell.ColumnNumber + 1].LegalNextMove = true;
                     }
                     catch (Exception) { }
+                    #endregion
                     break;
 
                 case "Rook":
+                    #region Rook Moves
                     try
                     {
                         // Down
@@ -170,9 +175,11 @@ namespace ChessBoardModel
                         }
                     }
                     catch (Exception) { }
+                    #endregion
                     break;
 
                 case "Bishop":
+                    #region Bishop Moves
                     try
                     {
                         // Down - Right
@@ -209,9 +216,11 @@ namespace ChessBoardModel
                         }
                     }
                     catch (Exception) { }
+                    #endregion
                     break;
 
                 case "Queen":
+                    #region Queen Moves
                     try
                     {
                         // Down - Right
@@ -284,6 +293,7 @@ namespace ChessBoardModel
                         }
                     }
                     catch (Exception) { }
+                    #endregion
                     break;
 
                 default: 
