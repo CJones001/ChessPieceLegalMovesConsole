@@ -1,5 +1,7 @@
 ﻿using ChessBoardModel;
 using System;
+using System.Xml;
+
 namespace ChessBoardConsoleApp
 {
     class Program
@@ -93,8 +95,15 @@ namespace ChessBoardConsoleApp
         static public string setPiece()
         {
             string myPiece = "";
-            Console.Out.Write("Select a piece: n = knight, r = rook, q = queen, b = bishop, k = king ");
-            string piece = Console.ReadLine();
+            string piece = "";
+            int check;
+            do
+            {
+                Console.Out.Write("Select a piece: n = knight, r = rook, q = queen, b = bishop, k = king ");
+                piece = Console.ReadLine();
+            }
+            while (int.TryParse(piece, out check) || piece == "");
+
             if (piece == "n")
             {
                 myPiece = "Knight";
