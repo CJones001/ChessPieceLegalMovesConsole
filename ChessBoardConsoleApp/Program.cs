@@ -52,7 +52,7 @@ namespace ChessBoardConsoleApp
                 Console.WriteLine();
             }
             Console.WriteLine("+---+---+---+---+---+---+---+---+");
-            Console.WriteLine("================================");
+            Console.WriteLine("=================================");
         }
         static public Cell setCurrentCell()
         {
