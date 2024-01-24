@@ -47,12 +47,35 @@ namespace ChessBoardConsoleApp
         }
         static public Cell setCurrentCell()
         {
-            Console.Out.Write("Enter your current row number ");
-            int currentRow = int.Parse(Console.ReadLine());
+            // Initialize the row and column
+            int currentRow;
+            int currentCol;
 
-            Console.Out.Write("Enter your current column number ");
-            int currentCol = int.Parse(Console.ReadLine());
+            do
+            {
+                Console.Out.Write("Enter your current row number ");
+                currentRow = int.Parse(Console.ReadLine());
+                // Display a message to the user for not entering a valid value
+                if (currentRow < 0 || currentRow > 7)
+                {
+                    Console.WriteLine("Enter a value between 0 and 7 ");
+                }
+            } 
+            // Make sure the user entered a valid value
+            while (currentRow > 7 || currentRow < 0);
 
+            do
+            {
+                Console.Out.Write("Enter your current column number ");
+                currentCol = int.Parse(Console.ReadLine());
+
+                if (currentCol < 0 || currentCol > 7)
+                {
+                    Console.WriteLine("Enter a value between 0 and 7 ");
+                }
+            } 
+            while (currentCol > 7 || currentCol < 0);
+            
             myBoard.theGrid[currentRow, currentCol].CurrentlyOccupied = true;
 
             return myBoard.theGrid[currentRow, currentCol];
@@ -81,7 +104,7 @@ namespace ChessBoardConsoleApp
             }
             if (piece == "b")
             {
-                myPiece = "bishop";
+                myPiece = "Bishop";
             }
             
             return myPiece;
