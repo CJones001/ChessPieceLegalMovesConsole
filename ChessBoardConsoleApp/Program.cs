@@ -102,11 +102,7 @@ namespace ChessBoardConsoleApp
                 Console.Out.Write("Select a piece: n = knight, r = rook, q = queen, b = bishop, k = king ");
                 piece = Console.ReadLine();
             }
-            while (piece != "n"
-                || piece != "k"
-                || piece != "r"
-                || piece != "q"
-                || piece != "b");
+            while (!(piece == "n" || piece == "k" || piece == "r" || piece == "q" || piece == "b"));
 
             if (piece == "n")
             {
